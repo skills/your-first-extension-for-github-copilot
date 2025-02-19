@@ -54,6 +54,16 @@ app.post("/", express.json(), async (req, res) => {
     content: schoolOverview,
   });
 
+  // Add the staff descriptions to copilot's messages
+  const staffDescriptions = await fs.readFile(
+    path.join(__dirname, "agent-knowledge", "staff-roles.md"),
+    "utf8"
+  );
+  messages.unshift({
+    role: "system",
+    content: staffDescriptions,
+  });
+
   // Send messages array to copilot and collect the response
   const userToken = req.get("X-GitHub-Token");
   const copilotResponse = await fetch("https://api.githubcopilot.com/chat/completions", {
