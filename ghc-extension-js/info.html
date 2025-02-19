@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GitHub Copilot for Mergington High School</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+      header {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+      .container {
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        font-size: 2em;
+        margin: 0;
+      }
+      p {
+        line-height: 1.5;
+      }
+      .prompts-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .prompt {
+        background-color: #e0f7fa;
+        border: 1px solid #4caf50;
+        border-radius: 5px;
+        padding: 10px 5px;
+        position: relative;
+        padding-left: 40px;
+      }
+      .prompt::before {
+        content: "💬";
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>GitHub Copilot for Mergington High School</h1>
+    </header>
+    <div class="container">
+      <img
+        src="https://octodex.github.com/images/Professortocat_v2.png"
+        alt="Octodex Professor Octocat"
+        style="display: block; margin: 20px auto; max-width: 200px"
+      />
+      <section>
+        <h2>Summary</h2>
+        <p>
+          This Copilot extension is designed to support the staff of
+          <b>Mergington High School</b> by providing automation services and tools to help staff
+          work faster, finding more time to support our students. It includes an overview of the
+          school and guidelines for developing simple software solutions tailored to our needs.
+        </p>
+        <p>
+          The extension is designed to assist a wide range of staff roles including principals,
+          teachers, counselors, and administrative support. If you are unsure what how to use it,
+          just ask. It has already has some ideas for supporting each role to get started.
+        </p>
+      </section>
+
+      <section>
+        <h2>How do I use this?</h2>
+        <p>Here are some example things you can ask (prompts) to help you get started:</p>
+        <div class="prompts-container">
+          <div class="prompt">
+            I'm a principal and spend a lot of time preparing summaries for the board meetings. Can
+            you help with that?
+          </div>
+          <div class="prompt">
+            I am unsure how to use this AI tool thing. Can you really help me? Like, what can you do
+            for me to make my job easier?
+          </div>
+          <div class="prompt">What job roles can you support? I'm an english teacher.</div>
+          <div class="prompt">
+            Please, Make me a program that shows a summary of my students' grades over the years.
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
