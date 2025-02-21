@@ -10,8 +10,8 @@ permissions:
   issues: write
 
 env:
-  # Keywords required in the issue comment to allow this workflow to run
-  REQUIRED_ISSUE_COMMENT_KEYWORDS: "@mona,please,check,codespace,running"
+  # Keywords required in the issue comment to let this workflow run
+  REQUIRED_ISSUE_COMMENT_KEYWORDS: "@mona,please,check,codespace,running,https,app.github.dev"
   STEP_3_FILE: ".github/steps/3-connecting-to-github.md"
 
 jobs:
@@ -25,6 +25,7 @@ jobs:
           required_keywords=(${REQUIRED_ISSUE_COMMENT_KEYWORDS//,/ })
           for keyword in "${required_keywords[@]}"; do
           if [[ ! "${{ github.event.comment.body }}" =~ $keyword ]]; then
+            echo "Unrecognized request. Ending workflow."
             exit 0
           fi
           done
@@ -32,29 +33,32 @@ jobs:
   find_exercise:
     name: Find exercise by issue title
     runs-on: ubuntu-latest
-    needs: required_issue_comment_keywords
+    needs: [required_issue_comment_keywords]
 
     outputs:
-      issue-url: ${{ steps.get-issue-url-by-title.outputs.ISSUE_URL }}
+      issue-url: ${{ steps.get-issue-url.outputs.ISSUE_URL }}
 
     steps:
-      - id: get-issue-url-from-event
+      - id: get-issue-url
         run: |
-          echo "ISSUE_URL=${{ github.event.issue.html_url }}" >> $GITHUB_OUTPUT
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Get the issue url from the event or search for it.
+          if [ -n "${{ github.event.issue }}" ]; then
+            issue_url="${{ github.event.issue.html_url }}"
+          else
+            issue_url=$(gh issue list --repo $REPO --search "in:title Exercise:" --json url,title --jq '.[].url')
+          fi
 
-      - id: get-issue-url-by-title
-        run: |
-          issue_url=$(gh issue list --repo ${{ github.repository }} --search "in:title Exercise:" --json url,title --jq '.[].url')
-          echo "ISSUE_URL=" >> $GITHUB_OUTPUT
+          # Save to output
+          echo "ISSUE_URL=$issue_url" >> $GITHUB_OUTPUT
+
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
 
   check_step_work:
     name: Check step work
     runs-on: ubuntu-latest
-    needs: find_exercise
+    needs: [find_exercise]
     env:
       ISSUE_URL: ${{ needs.find_exercise.outputs.issue-url }}
 
@@ -78,26 +82,29 @@ jobs:
 
       # START: Check practical exercise
 
-      - name: Get codespace url
-        id: get-codespace-url
-        run: |
-          port=3000
-          codespace_name=$(gh codespace list --json name --jq '.[0].name')
-          codespace_url=$(echo "${codespace_name}- ${port}.app.github.dev")
-          echo "CODESPACE_URL=$codespace_url" >> $GITHUB_OUTPUT
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Check codespace is running
         run: |
-          echo "Checking codespace is running at: $CODESPACE_URL"
-          resp_code=$(curl -s -o /dev/null -w "%{http_code}" $CODESPACE_URL)
+          # Get the codespace url from the comment body
+          url_regex="https://[a-z0-9-]*.app.github.dev"
+          codespace_url=$(echo $ISSUE_COMMENT_BODY | grep -oP "$url_regex" | head -n 1)
+
+          # Ping the web service for a status code
+          echo "Checking codespace is running at: $codespace_url"
+          resp_code=$(curl -s -o /dev/null -w "%{http_code}" $codespace_url)
+
+          # If the codespace is not running, comment on the issue and exit
           if [ "$resp_code" -eq 200 ]; then
             echo "Codespace confirmed running"
           else
-            echo "Codespace is not running"
-            exit 1
+            echo "Codespace is not running. Response Code: $resp_code"
+            gh issue comment "$ISSUE_URL" \
+            --body "I can't seem to find the service. Please confrim you can access it from a web browser and try again." \
+            --edit-last
+            exit 0
           fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_COMMENT_BODY: ${{ github.event.comment.body }}
 
       # END: Check practical exercise
 
