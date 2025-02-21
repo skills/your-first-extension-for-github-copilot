@@ -15,7 +15,7 @@ Now that our codespace is configured...we can test out the template extension.
    npm install
    ```
 
-1. Open the ports panel.
+1. Configure the open ports.
 
    1. In the lower panel bar, select the **Ports** tab.
    1. Verify port `3000` is active and the visibility is `public`.
@@ -28,8 +28,16 @@ Now that our codespace is configured...we can test out the template extension.
    1. The program should run and output some text like: `Copilot extension service running at: {URL}`
    1. This is the global URL for your extension running in this codespace.
 
-1. Verify our extensions service is running.
+1. Verify our extension service is running.
 
    1. In the lower panel bar, return to the **Ports** tab.
    1. Right click on the URL and select **Open in Browser**.
    1. You should see a web page describing your extension!
+
+1. Leave the debugger running to keep the service alive, and add an issue comment using the example below. Make sure you tag @mona to notify her and to update the link!
+
+   ```markdown
+   Hey @mona, please check if my codespace is running correctly.
+
+   https://my-codespace-link-3000.app.github.dev
+   ```
