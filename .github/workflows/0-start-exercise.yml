@@ -1,5 +1,7 @@
 name: Step 0 # Start Exercise
 
+# act push -W .github/workflows/0-start-exercise.yml -e .github/workflows-payload-examples/0-start-exercise.json
+
 on:
   push:
     branches:
@@ -12,15 +14,14 @@ permissions:
 
 env:
   EXERCISE_NAME: "Your First Extension for GitHub Copilot"
-  INTRO_MESSAGE: "If you are new to GitHub, you might find your fellow developers use ___**issues**___  to organize their work and collaborate. We will do the same! That's another lesson, but today, we will introduce you to the basics."
-  STEP_1_FILE: ".github/steps/1-create-a-branch.md"
+  INTRO_MESSAGE: "Get excited! We're about to learn how we can make your favorite AI pair programmer even better, by teaching a your own custom skills!"
+  STEP_1_FILE: ".github/steps/1-preparing.md"
 
 jobs:
   disable_workflows:
     name: Disable workflows
     runs-on: ubuntu-latest
-    if: |
-      !github.event.repository.is_template
+    if: false
 
     steps:
       - name: Checkout
@@ -31,7 +32,7 @@ jobs:
           workflows=$(git ls-files | grep -E '\.yml$|\.yaml$')
           for workflow in $workflows; do
             workflow_name=$(basename $workflow)
-            gh workflow disable "$workflow_name"
+            gh workflow disable "$workflow_name" || true
           done
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -39,8 +40,7 @@ jobs:
   start_exercise:
     name: Start Exercise
     runs-on: ubuntu-latest
-    if: |
-      !github.event.repository.is_template
+    if: false
 
     steps:
       - name: Checkout
@@ -92,8 +92,7 @@ jobs:
   post_next_step_content:
     name: Post next step content
     runs-on: ubuntu-latest
-    if: |
-      !github.event.repository.is_template
+    if: true
 
     steps:
       - name: Checkout
@@ -124,6 +123,7 @@ jobs:
         id: create-issue
         run: |
           issue_url=$(gh issue create \
+            --repo "chriswblake/playground" \
             --title "Exercise: $EXERCISE_NAME" \
             --body "${{ steps.build-issue-description.outputs.updated-text }}")
           echo "ISSUE_URL=$issue_url" >> "$GITHUB_ENV"
