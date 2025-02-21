@@ -100,7 +100,7 @@ jobs:
             gh issue comment "$ISSUE_URL" \
             --body "I can't seem to find the service. Please confrim you can access it from a web browser and try again." \
             --edit-last
-            exit 0
+            exit 1
           fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
