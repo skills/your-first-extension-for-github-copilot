@@ -1,3 +1,7 @@
+login: string
+
+---
+
 ## Step 3: Connecting to GitHub
 
 Before our extension is visible in the chat interface, we need to connect it to GitHub.
@@ -12,12 +16,12 @@ This is done by creating a GitHub App and installing it on your account.
 1. In the left sidebar at the bottom, select **Developer settings**.
 1. In the left sidebar at the top, select **GitHub Apps** .
 1. Click the **New GitHub App** button.
-1. On the displayed form, enter the following:
+1. In the displayed form, enter the following:
    1. In the **Register new GitHub App** section, enter:
-      - **GitHub App name**: `my-first-extension`
-        - This will be the handle in chat like `@my-first-extension`.
+      - **GitHub App name**: `my-first-extension-{{login}}`
+        - The app name must be unique across all GitHub.
+        - This will be the handle in Copilot chat, like `@my-first-extension-{{login}}`.
       - **Description**: `My first extension for GitHub Copilot`
-        - This will be displayed in the chat UI tooltip.
       - **Homepage URL**: URL to your repository.
    1. In the **Identifying and authorizing users** section, enter:
       - **Callback URL**: The url displayed on console when you run the extension, plus `/callback`.
@@ -46,3 +50,18 @@ This is done by creating a GitHub App and installing it on your account.
 1. click **Save**.
 1. On the left sidebar, click **Install App**.
 1. Click **Install** and **Install & Authorize**.
+
+### :keyboard: Activity: Testing the connection
+
+1. In VS Code, use the debugger to start the extension service.
+1. Open a web browser and navigate to [github.com](https://github.com).
+1. At the top of the page, click the **Copilot Icon**.
+1. Start a general chat.
+1. Type `@my-first-extension-{{login}} How can you help me?` and press enter. You should get a response.
+1. After you are done configuring your **GitHub App** and testing the connection, leave the following comment on the issue to let Mona know you are ready for the next step.
+
+   ```markdown
+   Hey @mona, I'm all done configuring my GitHub App. Here's the link. What's next?
+
+   https://github.com/apps/gh-skills-manager
+   ```
