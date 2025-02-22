@@ -62,7 +62,7 @@ jobs:
       - name: Activate 'Start Exercise' button
         run: |
           # Add link to issue
-          target='id="start_exercise"'
+          target='id="start-exercise"'
           replacement='id="start-exercise" href="../../issues/1"'
           sed -i "s|$target|$replacement|g" README.md
 
