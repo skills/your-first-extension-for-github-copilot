@@ -33,7 +33,7 @@ In this course, you will:
 
 1. Right-click **Copy Exercise** and open the link in a new tab.
 
-   <a id="copy-exercise" href="https://github.com/new?template_owner=skills&template_name=your-first-extension-for-github-copilot&owner=%40me&name=skills-your-first-extension-for-github-copilot&description=My+Course:+My+Copilot+Extension&visibility=public">
+   <a id="copy-exercise" href="https://github.com/new?template_owner=skills&template_name=your-first-extension-for-github-copilot&owner=%40me&name=skills-your-first-extension-for-github-copilot&description=Exercise:+My+Copilot+Extension&visibility=public">
       <img src="https://img.shields.io/badge/📠_Copy_Exercise-008000" height="25pt"/>
    </a>
 
