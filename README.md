@@ -7,9 +7,6 @@
 ![](../../actions/workflows/3-connecting-to-github.yml/badge.svg?branch=my-ghc-extension)
 ![](../../actions/workflows/4-customizing-our-extension.yml/badge.svg?branch=my-ghc-extension)
 
-> [!IMPORTANT]
-> The below buttons and workflows are not yet configured. You can preview the course steps from the `.github` folder.
-
 ## Welcome
 
 People love how GitHub Copilot helps them write code faster and with fewer errors.
