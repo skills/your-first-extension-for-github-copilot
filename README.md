@@ -2,10 +2,10 @@
 
 <!-- ![](../../actions/workflows/0-start-course.yml/badge.svg?branch=main) -->
 
-![](../../actions/workflows/1-preparing.yml/badge.svg?branch=my-first-extension)
-![](../../actions/workflows/2-running.yml/badge.svg?branch=my-first-extension)
-![](../../actions/workflows/3-connecting.yml/badge.svg?branch=my-first-extension)
-![](../../actions/workflows/4-customizing.yml/badge.svg?branch=my-first-extension)
+![](../../actions/workflows/1-preparing.yml/badge.svg?branch=my-ghc-extension)
+![](../../actions/workflows/2-running-our-extension.yml/badge.svg?branch=my-ghc-extension)
+![](../../actions/workflows/3-connecting-to-github.yml/badge.svg?branch=my-ghc-extension)
+![](../../actions/workflows/4-customizing-our-extension.yml/badge.svg?branch=my-ghc-extension)
 
 > [!IMPORTANT]
 > The below buttons and workflows are not yet configured. You can preview the course steps from the `.github` folder.
