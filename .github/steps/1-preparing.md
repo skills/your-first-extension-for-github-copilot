@@ -4,22 +4,22 @@ full_repo_name: string
 
 ## Step 1: Preparing to make your extension
 
-**Welcome to "Your first extension for GitHub Copilot"!** :robot:
+Welcome to **"Your first extension for GitHub Copilot"** exercise! :robot:
 
 Before we get started on your extension, we have to configure our development environment.
 Fortunately, this has been bootstrapped for you with a pre-configured [Codespace](https://github.com/features/codespaces).
 
-The environment includes:
+This development environment includes:
 
-- The Node.js runtime
-- An empty GitHub Extension (javascript web service)
+- The Node.js runtime.
+- An empty GitHub Extension (javascript web service).
 - [VS Code](https://code.visualstudio.com/) launch settings to start your extension in debug mode.
 
 <!-- Insert theory here that supports the course -->
 
 ### :keyboard: Activity: Getting to know your extension development environment
 
-1. Click the below button to open the **Create Codespace** page.
+1. Righ-click the below button to open the **Create Codespace** page in a new tab.
 
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/{{full_repo_name}}?quickstart=1)
 

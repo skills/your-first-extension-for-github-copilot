@@ -58,10 +58,11 @@ This is done by creating a GitHub App and installing it on your account.
 1. At the top of the page, click the **Copilot Icon**.
 1. Start a general chat.
 1. Type `@my-first-extension-{{login}} How can you help me?` and press enter. You should get a response.
+   - Tip: Try opening another VS Code window. You can use the extension there as well!
 1. After you are done configuring your **GitHub App** and testing the connection, leave the following comment on the issue to let Mona know you are ready for the next step.
 
    ```markdown
    Hey @mona, I'm all done configuring my GitHub App. Here's the link. What's next?
 
-   https://github.com/apps/gh-skills-manager
+   https://github.com/apps/my-first-extension-{{login}}
    ```

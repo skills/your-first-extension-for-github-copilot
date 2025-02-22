@@ -12,7 +12,7 @@ permissions:
 
 env:
   EXERCISE_NAME: "Your First Extension for GitHub Copilot"
-  INTRO_MESSAGE: "Get excited! We're about to learn how we can make your favorite AI pair programmer even better, by teaching it your own custom skills!"
+  INTRO_MESSAGE: "Get excited! We're about to learn how to make your favorite AI pair programmer even better by extending it with some customized skills!"
   STEP_1_FILE: ".github/steps/1-preparing.md"
 
 jobs:
