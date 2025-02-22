@@ -1,7 +1,6 @@
 # Your first extension for GitHub Copilot
 
 <!-- ![](../../actions/workflows/0-start-course.yml/badge.svg?branch=main) -->
-
 ![](../../actions/workflows/1-preparing.yml/badge.svg?branch=my-ghc-extension)
 ![](../../actions/workflows/2-running-our-extension.yml/badge.svg?branch=my-ghc-extension)
 ![](../../actions/workflows/3-connecting-to-github.yml/badge.svg?branch=my-ghc-extension)
