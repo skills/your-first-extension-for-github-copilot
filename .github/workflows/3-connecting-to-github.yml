@@ -67,7 +67,7 @@ jobs:
       - name: Get response templates
         uses: actions/checkout@v4
         with:
-          repository: chriswblake/skills-response-templates
+          repository: skills/response-templates
           path: skills-response-templates
 
       # START: Check practical exercise
@@ -129,7 +129,7 @@ jobs:
       - name: Get response templates
         uses: actions/checkout@v4
         with:
-          repository: chriswblake/skills-response-templates
+          repository: skills/response-templates
           path: skills-response-templates
 
       - name: Create comment - add step content

@@ -53,7 +53,7 @@ jobs:
       - name: Get response templates
         uses: actions/checkout@v4
         with:
-          repository: chriswblake/skills-response-templates
+          repository: skills/response-templates
           path: skills-response-templates
 
       # START: Check practical exercise
@@ -117,7 +117,7 @@ jobs:
 
       - name: Build message - step results
         id: build-message-step-results
-        uses: chriswblake/action-text-variables@v1
+        uses: skills/action-text-variables@v1
         with:
           template-file: skills-response-templates/step-feedback/step-results.md
           template-vars: '{
@@ -174,7 +174,7 @@ jobs:
       - name: Get response templates
         uses: actions/checkout@v4
         with:
-          repository: chriswblake/skills-response-templates
+          repository: skills/response-templates
           path: skills-response-templates
 
       - name: Create comment - add step content
