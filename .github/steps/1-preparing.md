@@ -1,7 +1,3 @@
-full_repo_name: string
-
----
-
 ## Step 1: Preparing to make your extension
 
 Welcome to **"Your first extension for GitHub Copilot"** exercise! :robot:

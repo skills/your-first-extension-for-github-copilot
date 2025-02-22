@@ -1,7 +1,3 @@
-login: string
-
----
-
 ## Step 3: Connecting to GitHub
 
 Before our extension is visible in the chat interface, we need to connect it to GitHub.
