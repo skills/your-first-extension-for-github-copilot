@@ -24,7 +24,7 @@ We'll do that here with a few markdown files that can be easily updated without 
 
       // Add the agent job description to copilot's messages
       const jobDescription = await fs.readFile(
-        path.join(\_\_dirname, "agent-knowledge", "job-description.md"),
+        path.join(__dirname, "agent-knowledge", "job-description.md"),
         "utf8"
       );
       messages.unshift({
