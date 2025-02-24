@@ -41,3 +41,7 @@ Now that our codespace is configured...we can test out the template extension.
 
    https://my-codespace-link-3000.app.github.dev
    ```
+
+> [!IMPORTANT]
+> When you restart a Codespace, the exposed ports are reset.
+> This may mean they are removed or changed to private visibility.

@@ -4,12 +4,12 @@
   "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
 
   // The service is hosted on port 3000
-  "appPort": ["3000"],
-  "forwardPorts": ["3000:3000"],
+  "forwardPorts": [3000],
   "portsAttributes": {
     "3000": {
       "label": "copilot-extension-service",
-      "onAutoForward": "silent"
+      "onAutoForward": "silent",
+      "requireLocalPort": true
     }
   },
 
