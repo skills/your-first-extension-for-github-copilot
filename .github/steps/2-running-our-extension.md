@@ -5,7 +5,7 @@ Let's learn a bit more about the web application that will become our GitHub Cop
 There are 2 required and 1 recommended web service endpoints:
 
 - **[GET] /callback** - A simple HTML message provided to the user after authorization to confirm that the extension has permissions.
-- **[POST] /copilot** - A response endpoint from the root of your web service to exchange messages with GitHub Copilot.
+- **[POST] /copilot** - A response endpoint to exchange messages with GitHub Copilot.
 - **[GET] /** - (Optional) A default response from the root of your web service for viewing in a normal web browser, to provide an overview of the extension.
 
 > [!NOTE]
