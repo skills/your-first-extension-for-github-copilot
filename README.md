@@ -2,10 +2,10 @@
 
 <!-- ![](../../actions/workflows/0-start-course.yml/badge.svg?branch=main) -->
 
-![](../../actions/workflows/1-preparing.yml/badge.svg?branch=my-ghc-extension)
+![](../../actions/workflows/1-preparing.yml/badge.svg)
 ![](../../actions/workflows/2-running-our-extension.yml/badge.svg)
 ![](../../actions/workflows/3-connecting-to-github.yml/badge.svg)
-![](../../actions/workflows/4-customizing-our-extension.yml/badge.svg?branch=my-ghc-extension)
+![](../../actions/workflows/4-customizing-our-extension.yml/badge.svg)
 ![](../../actions/workflows/5-merge-our-changes.yml/badge.svg)
 
 _Customize GitHub Copilot to your personal or company needs in less than an hour._
