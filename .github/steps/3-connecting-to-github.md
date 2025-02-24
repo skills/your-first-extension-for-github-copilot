@@ -22,7 +22,9 @@ Let's make a GitHub App, configure it to work with GitHub Copilot as an Agent, a
         - The app name must be unique across all GitHub.
         - This will be the handle in Copilot chat, like `@my-ghc-extension-{{login}}`.
       - **Description**: `My first extension for GitHub Copilot`
-      - **Homepage URL**: URL to your repository.
+      - **Homepage URL**: The url displayed on console when you run the extension.
+        - Example: `https://conscious-jumper-abcdefg-3000.app.github.dev`
+        - Alternately, the URL to your repository.
    1. In the **Identifying and authorizing users** section, enter:
       - **Callback URL**: The url displayed on console when you run the extension, plus `/callback`.
         - Example: `https://conscious-jumper-abcdefg-3000.app.github.dev/callback`
@@ -43,7 +45,7 @@ Let's make a GitHub App, configure it to work with GitHub Copilot as an Agent, a
    - If this is your first time creating a Copilot extension, you will be prompted to accept the terms.
 1. In the **App Type** dropdown, select `Agent`. Enter the following details:
    - **Preauthorization URL**: Blank
-   - **Agent Definition > URL**: The url displayed on console when you run the extension.
+   - **Agent Definition > URL**: The url displayed on console when you run the extension, plus `/copilot`.
      - Example: `https://conscious-jumper-abcdefg-3000.app.github.dev`
    - **Inference Description**: `My first extension for GitHub Copilot`
      - This will be displayed as a tooltip the Copilot chat interface.

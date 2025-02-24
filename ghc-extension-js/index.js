@@ -29,7 +29,7 @@ app.get("/callback", (req, res) => {
 });
 
 // Receive chat requests, process, and return a response
-app.post("/", express.json(), async (req, res) => {
+app.post("/copilot", express.json(), async (req, res) => {
   // Load messages array from the request payload
   const payload = req.body;
   const messages = payload.messages;
