@@ -1,10 +1,16 @@
 ## Step 2: Running our Extension
 
-Now that our codespace is configured...we can test out the template extension.
+Let's learn a bit more about the web application that will become our GitHub Copilot Extension, more specifically, the need endpoints for communicating with our [GitHub App](https://docs.github.com/en/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps) (next step).
 
-<!-- Insert theory here that supports the course -->
+There are 2 required and 1 recommended web service endpoints:
+
+- **[GET] /callback** - A simple HTML message provided to the user after authorization to confirm that the extension has permissions.
+- **[POST] /** - A response endpoint from the root of your web service to exchange messages with GitHub Copilot.
+- **[GET] /** - (Optional) A default response from the root of your web service for viewing in a normal web browser, to provide an overview of the extension.
 
 ### :keyboard: Activity: Running our extension
+
+Before we start customizing, let's try running the template extension that was provided.
 
 1. In VS Code, expand the the lower panel (Ctrl+J) and select the **Terminal** tab.
 
