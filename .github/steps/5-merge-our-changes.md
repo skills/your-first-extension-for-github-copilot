@@ -2,8 +2,6 @@
 
 Not much left! Let's create a pull request and merge our changes to `main`.
 
-<!-- Insert theory here that supports the course -->
-
 ### :keyboard: Create a pull request and merge
 
 1. In the web browser, navigate to your repository.
