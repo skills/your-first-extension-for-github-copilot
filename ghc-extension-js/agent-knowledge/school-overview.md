@@ -1,3 +1,3 @@
 # School Overview
 
-- Add some text to customize this school overview.
+- Replace this text to customize the school overview.

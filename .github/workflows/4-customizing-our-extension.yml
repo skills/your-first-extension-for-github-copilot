@@ -82,14 +82,14 @@ jobs:
             
           # Check agent job description does not use the template
           job_description=$(<"./ghc-extension-js/agent-knowledge/job-description.md")
-          if [[ $job_description =~ "customize this job description" ]]; then
+          if [[ $job_description =~ "customize the job description" ]]; then
             checks=$(echo $checks | jq '.job_description.passed = false')
             checks=$(echo $checks | jq '.job_description.message = "Please customize the agent job description. Do not use the template."')
           fi
 
           # Check school overview does not use the template
           school_overview=$(<"./ghc-extension-js/agent-knowledge/school-overview.md")
-          if [[ $school_overview =~ "customize this school overview" ]]; then
+          if [[ $school_overview =~ "customize the school overview" ]]; then
             checks=$(echo $checks | jq '.school_overview.passed = false')
             checks=$(echo $checks | jq '.school_overview.message = "Please customize the school overview. Do not use the template."')
           fi

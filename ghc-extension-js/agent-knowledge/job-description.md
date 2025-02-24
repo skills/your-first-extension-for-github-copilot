@@ -1,3 +1,3 @@
 ### Job Description
 
-- Add some text to customize this job description.
+- Replace this text to customize the job description.
