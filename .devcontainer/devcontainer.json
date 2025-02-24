@@ -1,0 +1,22 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+{
+  // A universal image that includes several runtimes and tools
+  "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
+
+  // The service is hosted on port 3000
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "copilot-extension-service",
+      "onAutoForward": "silent",
+      "requireLocalPort": true
+    }
+  },
+
+  // Add the GitHub Copilot extension for VS Code (for older installations).
+  "customizations": {
+    "vscode": {
+      "extensions": ["GitHub.copilot"]
+    }
+  }
+}

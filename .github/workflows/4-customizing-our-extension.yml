@@ -1,0 +1,199 @@
+name: Step 4 # Customizing our extension
+
+on:
+  push:
+    branches:
+      - my-ghc-extension
+    paths:
+      - "ghc-extension-js/agent-knowledge/**"
+
+permissions:
+  contents: read
+  actions: write
+  issues: write
+
+env:
+  STEP_5_FILE: ".github/steps/5-merge-our-changes.md"
+
+jobs:
+  find_exercise:
+    name: Find exercise by issue title
+    runs-on: ubuntu-latest
+
+    outputs:
+      issue-url: ${{ steps.get-issue-url.outputs.ISSUE_URL }}
+
+    steps:
+      - id: get-issue-url
+        run: |
+          # Get the issue url from the event or search for it.
+          if [ -n "${{ github.event.issue }}" ]; then
+            issue_url="${{ github.event.issue.html_url }}"
+          else
+            issue_url=$(gh issue list --repo $REPO --search "in:title Exercise:" --json url,title --jq '.[].url')
+          fi
+
+          # Save to output
+          echo "ISSUE_URL=$issue_url" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+
+  check_step_work:
+    name: Check step work
+    runs-on: ubuntu-latest
+    needs: [find_exercise]
+    env:
+      ISSUE_URL: ${{ needs.find_exercise.outputs.issue-url }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get response templates
+        uses: actions/checkout@v4
+        with:
+          repository: skills/response-templates
+          path: skills-response-templates
+
+      # START: Check practical exercise
+
+      - name: Check agent knowledge is updated
+        id: check-user-work
+        run: |
+          # Checks to perform
+            checks='{
+              "job_description": {
+                "name": "Job Description",
+                "passed": true,
+                "message": ""
+              },
+              "school_overview": {
+                "name": "School Overview",
+                "passed": true,
+                "message": ""
+              },
+              "staff_roles": {
+                "name": "Staff Roles",
+                "passed": true,
+                "message": ""
+              }
+            }'
+            
+          # Check agent job description does not use the template
+          job_description=$(<"./ghc-extension-js/agent-knowledge/job-description.md")
+          if [[ $job_description =~ "customize the job description" ]]; then
+            checks=$(echo $checks | jq '.job_description.passed = false')
+            checks=$(echo $checks | jq '.job_description.message = "Please customize the agent job description. Do not use the template."')
+          fi
+
+          # Check school overview does not use the template
+          school_overview=$(<"./ghc-extension-js/agent-knowledge/school-overview.md")
+          if [[ $school_overview =~ "customize the school overview" ]]; then
+            checks=$(echo $checks | jq '.school_overview.passed = false')
+            checks=$(echo $checks | jq '.school_overview.message = "Please customize the school overview. Do not use the template."')
+          fi
+
+          # Check staff roles does not use the template
+          staff_roles=$(<"./ghc-extension-js/agent-knowledge/staff-roles.md")
+          if [[ $staff_roles =~ "some roles a high school might have" ]]; then
+            checks=$(echo $checks | jq '.staff_roles.passed = false')
+            checks=$(echo $checks | jq '.staff_roles.message = "Please customize the staff roles. Do not use the template."')
+          fi
+
+          # Verify all checks passed 
+          passed=$(echo $checks | jq '. | all(.passed?)')
+
+          # Flatten to an array for returning. Allows iteration during rendering.
+          results=$(echo $checks | jq 'to_entries | map({name: .key} + .value)')
+
+          # Save pass status to output
+          echo "passed=$passed" >> $GITHUB_OUTPUT
+
+          # Save results to output
+          echo 'results<<EOF' >> $GITHUB_OUTPUT
+          echo $results >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
+
+      - name: Build message - step results
+        id: build-message-step-results
+        uses: skills/action-text-variables@v1
+        with:
+          template-file: skills-response-templates/step-feedback/step-results.md
+          template-vars: '{
+            "step_number": 4,
+            "passed": ${{ steps.check-user-work.outputs.passed }},
+            "results_table": ${{ steps.check-user-work.outputs.results }},
+            "tips": [
+            "You can also use Copilot to call functions! Another lesson though!",
+            "Feel free to add more agent knowledge files."
+            ]
+            }'
+
+      - name: Create comment - step results
+        run: |
+          gh issue comment "$ISSUE_URL" \
+            --body "$COMMENT_BODY" \
+            --edit-last
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMENT_BODY: ${{ steps.build-message-step-results.outputs.updated-text }}
+
+      - name: Fail job if not all checks passed
+        if: steps.check-user-work.outputs.passed == 'false'
+        run: exit 1
+
+      # END: Check practical exercise
+
+      - name: Build message - step finished
+        id: build-message-step-finish
+        uses: skills/action-text-variables@v1
+        with:
+          template-file: skills-response-templates/step-feedback/step-finished-prepare-next-step.md
+          template-vars: |
+            next_step_number=4
+
+      - name: Update comment - step finished
+        run: |
+          gh issue comment "$ISSUE_URL" \
+            --body "${{ steps.build-message-step-finish.outputs.updated-text }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  post_step_4_content:
+    name: Post step 4 content
+    needs: [find_exercise, check_step_work]
+    runs-on: ubuntu-latest
+    env:
+      ISSUE_URL: ${{ needs.find_exercise.outputs.issue-url }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get response templates
+        uses: actions/checkout@v4
+        with:
+          repository: skills/response-templates
+          path: skills-response-templates
+
+      - name: Create comment - add step content
+        run: |
+          gh issue comment "$ISSUE_URL" \
+            --body-file "$STEP_5_FILE"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create comment - watching for progress
+        run: |
+          gh issue comment "$ISSUE_URL" \
+            --body-file skills-response-templates/step-feedback/watching-for-progress.md
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Disable current workflow and enable next one
+        run: |
+          gh workflow disable "Step 4"
+          gh workflow enable "Step 5"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

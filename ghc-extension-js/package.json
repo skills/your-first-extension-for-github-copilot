@@ -1,0 +1,14 @@
+{
+  "name": "your-first-extension-for-github-copilot",
+  "private": "true",
+  "description": "A basic example of customizing GitHub Copilot to your needs",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "@octokit/core": "^6.1.2",
+    "express": "^4.19.2"
+  }
+}
