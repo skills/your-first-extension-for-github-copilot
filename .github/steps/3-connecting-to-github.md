@@ -22,11 +22,11 @@ This is done by creating a GitHub App and installing it on your account.
    1. In the **Identifying and authorizing users** section, enter:
       - **Callback URL**: The url displayed on console when you run the extension, plus `/callback`.
         - Example: `https://conscious-jumper-abcdefg-3000.app.github.dev/callback`
-      - **Expire user authorization tokens**: Checked
-      - **Request user authorization (OAuth) during installation**: [x] Checked
-      - **Enable Device Flow**: `Unchecked`
+      - **Expire user authorization tokens**: `[x] Checked`
+      - **Request user authorization (OAuth) during installation**: `[x] Checked`
+      - **Enable Device Flow**: `[ ] Unchecked`
    1. In the **Webhook** section enter:
-      - **Active**: `Unchecked`
+      - **Active**: `[ ] Unchecked`
    1. In the **Permissions** section, select the following permissions:
       - Repository: `None`
       - Organization: `None`
@@ -52,7 +52,7 @@ This is done by creating a GitHub App and installing it on your account.
 1. In VS Code, use the debugger to start the extension service.
 1. Open a web browser and navigate to [github.com](https://github.com).
 1. At the top of the page, click the **Copilot Icon**.
-1. Start a general chat.
+1. Start a general purpose chat.
 1. Type `@my-first-extension-{{login}} How can you help me?` and press enter. You should get a response.
    - Tip: Try opening another VS Code window. You can use the extension there as well!
 1. After you are done configuring your **GitHub App** and testing the connection, leave the following comment on the issue to let Mona know you are ready for the next step.
