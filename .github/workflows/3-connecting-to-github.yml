@@ -32,7 +32,6 @@ jobs:
   find_exercise:
     name: Find exercise by issue title
     runs-on: ubuntu-latest
-    needs: [required_issue_comment_keywords]
 
     outputs:
       issue-url: ${{ steps.get-issue-url.outputs.ISSUE_URL }}
@@ -56,7 +55,7 @@ jobs:
   check_step_work:
     name: Check step work
     runs-on: ubuntu-latest
-    needs: [find_exercise]
+    needs: [required_issue_comment_keywords, find_exercise]
     env:
       ISSUE_URL: ${{ needs.find_exercise.outputs.issue-url }}
 
