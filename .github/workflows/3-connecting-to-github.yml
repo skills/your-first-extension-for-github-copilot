@@ -2,7 +2,7 @@ name: Step 3 # Connecting to GitHub
 
 on:
   issue_comment:
-    types: [created]
+    types: [created, edited]
 
 permissions:
   contents: read
@@ -11,7 +11,7 @@ permissions:
 
 env:
   # Keywords required in the issue comment to allow this workflow to run
-  REQUIRED_ISSUE_COMMENT_KEYWORDS: "@mona,all,done,GitHub,App,https://github.com/apps"
+  REQUIRED_ISSUE_COMMENT_KEYWORDS: "@mona,https://github.com/apps"
   STEP_4_FILE: ".github/steps/4-customizing-our-extension.md"
 
 jobs:
@@ -32,7 +32,6 @@ jobs:
   find_exercise:
     name: Find exercise by issue title
     runs-on: ubuntu-latest
-    needs: [required_issue_comment_keywords]
 
     outputs:
       issue-url: ${{ steps.get-issue-url.outputs.ISSUE_URL }}
@@ -56,7 +55,7 @@ jobs:
   check_step_work:
     name: Check step work
     runs-on: ubuntu-latest
-    needs: [find_exercise]
+    needs: [required_issue_comment_keywords, find_exercise]
     env:
       ISSUE_URL: ${{ needs.find_exercise.outputs.issue-url }}
 
@@ -132,13 +131,19 @@ jobs:
           repository: skills/response-templates
           path: skills-response-templates
 
+      - name: Create lowercase version of login
+        if: true
+        run: |
+          login_lowercase=$(echo "${{ github.actor }}" | tr '[:upper:]' '[:lower:]')
+          echo "login_lowercase=$login_lowercase" >> $GITHUB_ENV
+
       - name: Build comment - add step content
         id: build-comment
         uses: skills/action-text-variables@v1
         with:
           template-file: ${{ env.STEP_4_FILE }}
           template-vars: |
-            login=${{ github.actor }}
+            login_lowercase=${{ env.login_lowercase }}
 
       - name: Create comment - add step content
         run: |

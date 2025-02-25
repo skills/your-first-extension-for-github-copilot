@@ -1,22 +1,36 @@
 ## Step 4: Customizing our Extension
 
 Nice work getting your extension up and running! :tada:
-It feels cool to see Copilot responding, right?!
+It feels cool to see Copilot responding, right?! :sunglasses:
 
-Now let's get into the REALLy fun parts where we customize it to support our local high school! :unicorn:
+Now let's get into the fun parts where we customize it to support the staff of our local high school! :unicorn:
 
-<!-- Insert theory here that supports the course -->
+But, before we do that, let's talk about the nature of the exchanged messages with GitHub Copilot and "context passing".
 
-### :keyboard: Configuring our extension
+### What is context?
+
+Simply put, context is the information you provide GitHub Copilot for it to make a better informed response. That could be asking Copilot to assume a persona, providing it some background data, or asking it a particular question.
+
+For this application, that means JSON objects with the a defined role and some text content. In our case, we will attach a few `system` messages that look similar to the below. When the user interacts with GitHub Copilot, you will notice those attached as the `user` role.
+
+```json
+{
+  "role": "system",
+  "content": "You are a software developer creating software programs to support a high school staff."
+}
+```
+
+### :keyboard: Activity: Configuring our extension
 
 Customizing Copilot is pretty simple. It's similar to sharing more information with a coworker.
-You simply have to add more context to help them make informed decision.
-We'll do that here with a few markdown files that can be easily updated without any working of breaking our extension.
+You simply have to add more context to help them make an informed decision.
+
+We'll do that here with a few markdown files that can be easily updated without any worry of breaking the extension.
 
 1. Open VS Code and expand the `/ghc-extension-js` folder.
 1. Let's give our extension Agent a job description. Everyone likes job clarity, right?
 
-   1. Open `index.js` and find where the messages are loaded (about line 35), and add the below lines.
+   1. Open `index.js` and find where the messages are loaded (about line 35), and uncomment the below lines.
       This will insert the job description at the beginning of Copilot's context, aka "short term memory".
 
       ```js
@@ -33,7 +47,7 @@ We'll do that here with a few markdown files that can be easily updated without 
       });
       ```
 
-   1. Create the file `/agent-knowledge/job-description.md`, open it, and add the following content.
+   1. Open the file `/agent-knowledge/job-description.md` and replace the placeholder with the following content.
 
       ```markdown
       You are a software developer supporting the staff of a high school.
@@ -44,7 +58,7 @@ We'll do that here with a few markdown files that can be easily updated without 
       > You can add more detail to your description. Check out the `job-description-ext.md` file.
 
 1. Now, let's repeat the above process for 2 more files.
-1. Add the `/agent-knowledge/school-overview.md` file with the below content.
+1. Modify `index.js` to also use `/agent-knowledge/school-overview.md` with the below content.
 
    ```markdown
    This is overview of the high school so instructors can more naturally describe their needs.
@@ -62,7 +76,7 @@ We'll do that here with a few markdown files that can be easily updated without 
    > [!TIP]
    > You can add more detail to your description. Check out the `school-overview-ext.md` file.
 
-1. Add the `/agent-knowledge/staff-roles.md` file with the below content
+1. Modify `index.js` to also use `/agent-knowledge/staff-roles.md` with the below content.
 
    ```markdown
    Below is a list of common roles and tasks they might want help with.
@@ -89,23 +103,24 @@ We'll do that here with a few markdown files that can be easily updated without 
 
 1. Great work! Now we have a job description and some context for our extension to use. Let's test it out!
 1. In the left navigation bar, use the debugger to start the extension service.
+1. If the extension service is not already running, use the debugger to start it.
 1. Like previously, navigate to [github.com](https://github.com) and start a generic chat with Copilot.
 1. Try interacting with Copilot using some of the below prompts.
 
-   ```
-   @my-first-extension-{{login}} I heard you can help me with my students. In what ways?
-   ```
-
-   ```
-   @my-first-extension-{{login}} Tell me a bit about our school?
+   ```txt
+   @my-ghc-extension-{{login_lowercase}}I heard you can help me with my students. In what ways?
    ```
 
-   ```
-   @my-first-extension-{{login}} I'd like to create a system for tracking student progress across years and teachers. Let's make a website for it.
+   ```txt
+   @my-ghc-extension-{{login_lowercase}} Tell me a bit about our school?
    ```
 
+   ```txt
+   @my-ghc-extension-{{login_lowercase}} I'd like to create a system for tracking student progress across years and teachers. Let's make a website for it.
    ```
-   @my-first-extension-{{login}} I have a data file exported from our student management system. Show me a graph of each students' grades over the year.
+
+   ```txt
+   @my-ghc-extension-{{login_lowercase}} How can I visualize data exported from our student management system? For example a graph of each students' grades over the year.
    ```
 
 1. When you are done experimenting with prompts and changing the files, please commit and push the changes.
