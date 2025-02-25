@@ -132,13 +132,19 @@ jobs:
           repository: skills/response-templates
           path: skills-response-templates
 
+      - name: Create lowercase version of login
+        if: true
+        run: |
+          login_lowercase=$(echo "${{ github.actor }}" | tr '[:upper:]' '[:lower:]')
+          echo "login_lowercase=$login_lowercase" >> $GITHUB_ENV
+
       - name: Build comment - add step content
         id: build-comment
         uses: skills/action-text-variables@v1
         with:
           template-file: ${{ env.STEP_4_FILE }}
           template-vars: |
-            login=${{ github.actor }}
+            login_lowercase=${{ env.login_lowercase }}
 
       - name: Create comment - add step content
         run: |

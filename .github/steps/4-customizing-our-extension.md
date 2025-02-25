@@ -108,19 +108,19 @@ We'll do that here with a few markdown files that can be easily updated without 
 1. Try interacting with Copilot using some of the below prompts.
 
    ```txt
-   @my-ghc-extension-{{login}} I heard you can help me with my students. In what ways?
+   @my-ghc-extension-{{login_lowercase}}I heard you can help me with my students. In what ways?
    ```
 
    ```txt
-   @my-ghc-extension-{{login}} Tell me a bit about our school?
+   @my-ghc-extension-{{login_lowercase}} Tell me a bit about our school?
    ```
 
    ```txt
-   @my-ghc-extension-{{login}} I'd like to create a system for tracking student progress across years and teachers. Let's make a website for it.
+   @my-ghc-extension-{{login_lowercase}} I'd like to create a system for tracking student progress across years and teachers. Let's make a website for it.
    ```
 
    ```txt
-   @my-ghc-extension-{{login}} How can I visualize data exported from our student management system? For example a graph of each students' grades over the year.
+   @my-ghc-extension-{{login_lowercase}} How can I visualize data exported from our student management system? For example a graph of each students' grades over the year.
    ```
 
 1. When you are done experimenting with prompts and changing the files, please commit and push the changes.
