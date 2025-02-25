@@ -22,13 +22,13 @@ In this exercise, we will make a custom extension for GitHub Copilot that can he
 - **Prerequisites**: Skills Exercise: Getting Started with GitHub Copilot
 - **How long**: This course takes less than one hour to complete.
 
-In this course, you will:
+In this exercise, you will:
 
 1. Start up a preconfigured development environment for making a GitHub Copilot Extension.
 2. Run the included template extension.
 3. Connect the extension to your GitHub account.
 4. Customize the extension to your needs.
-5. Practice prompting with your new Custom Github Copilot Extension.
+5. Practice prompting with your new custom Github Copilot Extension.
 
 ### How to start this exercise
 
