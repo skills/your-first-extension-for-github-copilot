@@ -88,6 +88,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   create_exercise:
+    if: |
+      !github.event.repository.is_template
     name: Create exercise issue
     runs-on: ubuntu-latest
 
