@@ -54,8 +54,7 @@ We'll do that here with a few markdown files that can be easily updated without 
       Your goal is to provide automation services and tools to help them work faster.
       ```
 
-      > [!TIP]
-      > You can add more detail to your description. Check out the `job-description-ext.md` file.
+      > **Tip:** You can add more detail to your description. Check out the `job-description-ext.md` file.
 
 1. Now, let's repeat the above process for 2 more files.
 1. Modify `index.js` to also use `/agent-knowledge/school-overview.md` with the below content.
@@ -73,8 +72,7 @@ We'll do that here with a few markdown files that can be easily updated without 
    - There is a 4th summer cycle, but it is optional.
    ```
 
-   > [!TIP]
-   > You can add more detail to your description. Check out the `school-overview-ext.md` file.
+   > **Tip:** You can add more detail to your description. Check out the `school-overview-ext.md` file.
 
 1. Modify `index.js` to also use `/agent-knowledge/staff-roles.md` with the below content.
 
@@ -98,8 +96,7 @@ We'll do that here with a few markdown files that can be easily updated without 
    - Classroom management and behavior systems
    ```
 
-   > [!TIP]
-   > You can add more detail to your description. Check out the `staff-roles-ext.md` file.
+   > **Tip:** You can add more detail to your description. Check out the `staff-roles-ext.md` file.
 
 1. Great work! Now we have a job description and some context for our extension to use. Let's test it out!
 1. In the left navigation bar, use the debugger to start the extension service.
