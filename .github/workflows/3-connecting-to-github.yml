@@ -2,7 +2,7 @@ name: Step 3 # Connecting to GitHub
 
 on:
   issue_comment:
-    types: [created]
+    types: [created, edited]
 
 permissions:
   contents: read

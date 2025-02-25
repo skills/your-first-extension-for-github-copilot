@@ -2,7 +2,7 @@ name: Step 2 # Running our extension
 
 on:
   issue_comment:
-    types: [created]
+    types: [created, edited]
 
 permissions:
   contents: read
