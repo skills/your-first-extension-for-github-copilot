@@ -105,7 +105,7 @@ We'll do that here with a few markdown files that can be easily updated without 
 1. Try interacting with Copilot using some of the below prompts.
 
    ```txt
-   @my-ghc-extension-{{login_lowercase}}I heard you can help me with my students. In what ways?
+   @my-ghc-extension-{{login_lowercase}} I heard you can help me with my students. In what ways?
    ```
 
    ```txt
