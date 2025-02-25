@@ -22,13 +22,45 @@ In fact, you can even publish your extension on the [GitHub Marketplace](https:/
 ### How do I make an extension?
 
 Creating an extension is fairly easy. In includes 3 parts, which we will learn in this lesson.
+Naturally, the web service must be hosted, but for that is another topic. For this exercise, we will use a [Codespace](https://github.com/features/codespaces).
 
 1. **GitHub App** - Enables message handling and communicating with GitHub Copilot.
 1. **Extension Service** - A standard web service for receiving the messages, performing the custom actions, and responding back to GitHub Copilot.
-1. **Web Service Host** - A shared resource for your application to live for receiving messages and responding.
+1. **Extension Content** - Materials provided to your extension to customize it for your application.
 
 > [!IMPORTANT]
 > A [GitHub Copilot Extension](https://github.com/features/copilot/extensions) is _NOT_ the [GitHub Copilot VS Code Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) found in your IDE, but rather an extra capability to enhance it.
+
+```mermaid
+flowchart LR
+
+   %% User
+   user@{ shape: circle, label: "User" }
+   ide@{ shape: div-rect, label: "IDE
+                                 (Copilot Chat)" }
+
+   %% Extension
+   github_app@{ shape: div-rect, label: "GitHub App" }
+   extension_content@{ shape: docs, label: "Extension Content"}
+   %% extension_calls@{ shape: docs, label: "Function Calls"}
+   %% extension_resource@{ shape: cyl, label: "Other
+   %%                                         Resources" }
+   extension_service@{ shape: subproc, label: "Extension Service" }
+
+   %% Copilot
+   copilot_service@{ shape: curv-trap, label: "Copilot
+   Services" }
+
+   %%% Main Flow
+   user -- "**@my-ghc-extension**:
+            How do I...?" --> ide
+   --> github_app --> extension_service --response--> ide
+
+   %% Extension Flow
+   extension_service --> copilot_service --> extension_service
+   extension_content o--o extension_service
+   %% extension_resource <--> extension_calls --> extension_service --> extension_calls
+```
 
 ### Ok, let's get to developing! :mechanical_arm:
 
