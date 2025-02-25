@@ -35,6 +35,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   start_exercise:
+    if: |
+      !github.event.repository.is_template
     name: Start Exercise
     runs-on: ubuntu-latest
 
