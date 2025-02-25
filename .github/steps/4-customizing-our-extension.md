@@ -58,7 +58,7 @@ We'll do that here with a few markdown files that can be easily updated without 
       > You can add more detail to your description. Check out the `job-description-ext.md` file.
 
 1. Now, let's repeat the above process for 2 more files.
-1. Find the `/agent-knowledge/school-overview.md` file and insert the below content.
+1. Modify `index.js` to also use `/agent-knowledge/school-overview.md` with the below content.
 
    ```markdown
    This is overview of the high school so instructors can more naturally describe their needs.
@@ -76,7 +76,7 @@ We'll do that here with a few markdown files that can be easily updated without 
    > [!TIP]
    > You can add more detail to your description. Check out the `school-overview-ext.md` file.
 
-1. Find the `/agent-knowledge/staff-roles.md` file and insert the below content
+1. Modify `index.js` to also use `/agent-knowledge/staff-roles.md` with the below content.
 
    ```markdown
    Below is a list of common roles and tasks they might want help with.
@@ -103,6 +103,7 @@ We'll do that here with a few markdown files that can be easily updated without 
 
 1. Great work! Now we have a job description and some context for our extension to use. Let's test it out!
 1. In the left navigation bar, use the debugger to start the extension service.
+1. If the extension service is not already running, use the debugger to start it.
 1. Like previously, navigate to [github.com](https://github.com) and start a generic chat with Copilot.
 1. Try interacting with Copilot using some of the below prompts.
 
@@ -119,7 +120,7 @@ We'll do that here with a few markdown files that can be easily updated without 
    ```
 
    ```txt
-   @my-ghc-extension-{{login}} I have a data file exported from our student management system. Show me a graph of each students' grades over the year.
+   @my-ghc-extension-{{login}} How can I visualize data exported from our student management system? For example a graph of each students' grades over the year.
    ```
 
 1. When you are done experimenting with prompts and changing the files, please commit and push the changes.

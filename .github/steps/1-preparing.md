@@ -2,11 +2,11 @@
 
 Welcome to **"Your first extension for GitHub Copilot"** exercise! :robot:
 
-As mentioned in the introduction README, we will be making an extension for GitHub Copilot by creating a web service, connecting to a GitHub App, and customizing it to our needs (the staff of a high school). But before we get started, let's learn a bit more about extensions.
+We will be making an extension for GitHub Copilot by creating a web service, connecting to a GitHub App, and customizing it to our needs (the staff of a high school). But before we get started, let's learn a bit more about extensions.
 
 ### What is a GitHub Copilot Extension?
 
-A [GitHub Copilot Extension](https://github.com/features/copilot/extensions) is an add-on that provides customized abilities wherever you use it. That means, it can be more dynamic and include consistent context.
+A [GitHub Copilot Extension](https://github.com/features/copilot/extensions) is an add-on that provides customized abilities for GitHub Chat and github.com. That means, it can be more dynamic and include consistent context.
 
 For example:
 
@@ -28,7 +28,7 @@ Creating an extension is fairly easy. In includes 3 parts, which we will learn i
 1. **Web Service Host** - A shared resource for your application to live for receiving messages and responding.
 
 > [!IMPORTANT]
-> A [GitHub Copilot Extension](https://github.com/features/copilot/extensions) is _NOT_ the [GitHub Copilot Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) found in your IDE, but rather an extra capability to enhance it.
+> A [GitHub Copilot Extension](https://github.com/features/copilot/extensions) is _NOT_ the [GitHub Copilot VS Code Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) found in your IDE, but rather an extra capability to enhance it.
 
 ### Ok, let's get to developing! :mechanical_arm:
 
@@ -43,7 +43,7 @@ This development environment includes:
 
 ### :keyboard: Activity: Getting to know your extension development environment
 
-1. Righ-click the below button to open the **Create Codespace** page in a new tab.
+1. Right-click the below button to open the **Create Codespace** page in a new tab.
 
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/{{full_repo_name}}?quickstart=1)
 

@@ -22,9 +22,9 @@ Let's make a GitHub App, configure it to work with GitHub Copilot as an Agent, a
         - The app name must be unique across all GitHub.
         - This will be the handle in Copilot chat, like `@my-ghc-extension-{{login}}`.
       - **Description**: `My first extension for GitHub Copilot`
-      - **Homepage URL**: The url displayed on console when you run the extension.
-        - Example: `https://conscious-jumper-abcdefg-3000.app.github.dev`
-        - Alternately, the URL to your repository.
+      - **Homepage URL**: Any url that provides an overview and usage instructions for your extension.
+        - We will use our web service's information page. This is the url displayed on console when you run the extension, plus `/info`.
+        - Example: `https://conscious-jumper-abcdefg-3000.app.github.dev/info`
    1. In the **Identifying and authorizing users** section, enter:
       - **Callback URL**: The url displayed on console when you run the extension, plus `/callback`.
         - Example: `https://conscious-jumper-abcdefg-3000.app.github.dev/callback`
@@ -46,7 +46,7 @@ Let's make a GitHub App, configure it to work with GitHub Copilot as an Agent, a
 1. In the **App Type** dropdown, select `Agent`. Enter the following details:
    - **Preauthorization URL**: Blank
    - **Agent Definition > URL**: The url displayed on console when you run the extension, plus `/copilot`.
-     - Example: `https://conscious-jumper-abcdefg-3000.app.github.dev`
+     - Example: `https://conscious-jumper-abcdefg-3000.app.github.dev/copilot`
    - **Inference Description**: `My first extension for GitHub Copilot`
      - This will be displayed as a tooltip the Copilot chat interface.
 1. click **Save**.
@@ -57,7 +57,7 @@ Let's make a GitHub App, configure it to work with GitHub Copilot as an Agent, a
 
 Let's check if our extension service is available to use on github.com and in our IDE, and that they are able to communicate.
 
-1. In VS Code, use the debugger to start the extension service.
+1. In VS Code, use the debugger to start the extension service if it is not already running.
 1. Open a web browser and navigate to [github.com](https://github.com).
 1. At the top of the page, click the **Copilot Icon**.
 1. Start a general purpose chat.
