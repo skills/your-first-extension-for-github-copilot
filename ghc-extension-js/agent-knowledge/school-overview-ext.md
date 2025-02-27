@@ -4,7 +4,7 @@ This is overview of the high school so instructors can more naturally describe t
 
 - The school name is "Mergington High School"
 - The school is a public high school in Mergington, Florida.
-- It is best know for its practical combining of the arts and sciences.
+- It is best known for its practical combining of the arts and sciences.
 - It serves grades 9 through 12 and typically has 100 to 150 students per grade.
 
 ### Branding
