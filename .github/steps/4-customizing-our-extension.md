@@ -16,7 +16,7 @@ For this application, that means JSON objects with a defined role and some text 
 ```json
 {
   "role": "system",
-  "content": "You are a software developer creating software programs to support a high school staff."
+  "content": "You are a software developer creating desktop and web-based programs to support a high school staff."
 }
 ```
 
@@ -54,10 +54,10 @@ We'll do that here with a few markdown files that can be easily updated without 
       Your goal is to provide automation services and tools to help them work faster.
       ```
 
-      > **Tip:** You can add more detail to your description. Check out the `job-description-ext.md` file.
+      > **Tip:** You can add more detail to your description. Check out the `job-description-ext.md` file for ideas.
 
 1. Now, let's repeat the above process for 2 more files.
-1. Modify `index.js` to also use `/agent-knowledge/school-overview.md` with the below content.
+1. Modify `index.js` to also use `/agent-knowledge/school-overview.md` with the below content for ideas.
 
    ```markdown
    This is an overview of the high school so instructors can more naturally describe their needs.
@@ -72,7 +72,7 @@ We'll do that here with a few markdown files that can be easily updated without 
    - There is a 4th summer cycle, but it is optional.
    ```
 
-   > **Tip:** You can add more detail to your description. Check out the `school-overview-ext.md` file.
+   > **Tip:** You can add more detail to your description. Check out the `school-overview-ext.md` file for ideas.
 
 1. Modify `index.js` to also use `/agent-knowledge/staff-roles.md` with the below content.
 
@@ -99,7 +99,6 @@ We'll do that here with a few markdown files that can be easily updated without 
    > **Tip:** You can add more detail to your description. Check out the `staff-roles-ext.md` file.
 
 1. Great work! Now we have a job description and some context for our extension to use. Let's test it out!
-1. In the left navigation bar, use the debugger to start the extension service.
 1. If the extension service is not already running, use the debugger to start it.
 1. Like previously, navigate to [github.com](https://github.com) and start a generic chat with Copilot.
 1. Try interacting with Copilot using some of the below prompts.

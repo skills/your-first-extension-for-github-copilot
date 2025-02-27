@@ -126,7 +126,7 @@ jobs:
             "results_table": ${{ steps.check-user-work.outputs.results }},
             "tips": [
             "You can also use Copilot to call functions! Another lesson though!",
-            "Feel free to add more agent knowledge files."
+            "You might try reading the incoming context to dynamically include agent knowledge files."
             ]
             }'
 

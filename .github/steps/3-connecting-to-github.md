@@ -62,7 +62,7 @@ Let's check if our extension service is available to use on github.com and in ou
 1. At the top of the page, click the **Copilot Icon**.
 1. Start a general purpose chat.
 1. Type `@my-ghc-extension-{{login_lowercase}} How can you help me?` and press enter. You should get a response.
-   - Tip: Try opening another VS Code window. You can use the extension there as well!
+   > **Tip:** Try opening another VS Code window. You can use the extension there with Copilot Chat as well!
 1. After you are done configuring your **GitHub App** and testing the connection, leave the following comment on the issue to let Mona know you are ready for the next step.
 
    ```markdown
