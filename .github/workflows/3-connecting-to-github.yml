@@ -11,7 +11,7 @@ permissions:
 
 env:
   # Keywords required in the issue comment to allow this workflow to run
-  REQUIRED_ISSUE_COMMENT_KEYWORDS: "@mona,https://github.com/apps"
+  REQUIRED_ISSUE_COMMENT_KEYWORDS: "@professortocat,https://github.com/apps"
   STEP_4_FILE: ".github/steps/4-customizing-our-extension.md"
 
 jobs:

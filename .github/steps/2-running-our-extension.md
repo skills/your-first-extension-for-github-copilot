@@ -43,10 +43,10 @@ Before we start customizing, let's try running the template extension that was p
    1. Right click on the URL and select **Open in Browser**.
    1. You should see a web page describing your extension!
 
-1. Leave the debugger running to keep the service alive, and add an issue comment using the example below. Make sure you tag @mona to notify her and to update the link!
+1. Leave the debugger running to keep the service alive, and add an issue comment using the example below. Make sure you tag Professor Octocat to notify her and to update the link!
 
    ```markdown
-   Hey @mona, please check if my codespace is running correctly.
+   Hey @professortocat, please check if my codespace is running correctly.
 
    https://my-codespace-link-3000.app.github.dev
    ```

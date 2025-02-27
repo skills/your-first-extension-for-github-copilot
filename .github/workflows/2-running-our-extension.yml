@@ -11,7 +11,7 @@ permissions:
 
 env:
   # Keywords required in the issue comment to let this workflow run
-  REQUIRED_ISSUE_COMMENT_KEYWORDS: "@mona,https,app.github.dev"
+  REQUIRED_ISSUE_COMMENT_KEYWORDS: "@professortocat,https,app.github.dev"
   STEP_3_FILE: ".github/steps/3-connecting-to-github.md"
 
 jobs:

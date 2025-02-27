@@ -66,7 +66,7 @@ Let's check if our extension service is available to use on github.com and in ou
 1. After you are done configuring your **GitHub App** and testing the connection, leave the following comment on the issue to let Mona know you are ready for the next step.
 
    ```markdown
-   Hey @mona, I'm all done configuring my GitHub App. Here's the link. What's next?
+   Hey @professortocat, I'm all done configuring my GitHub App. Here's the link. What's next?
 
    https://github.com/apps/my-ghc-extension-{{login}}
    ```
