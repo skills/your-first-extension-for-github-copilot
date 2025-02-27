@@ -19,6 +19,6 @@ This is overview of the high school so instructors can more naturally describe t
 - There are 3 trimesters per year.
 - There is a 4th summer cycle, but that is optional for students.
 
-### Histroy
+### History
 
 The school was founded in 2008 and has with only 4 staff members.
