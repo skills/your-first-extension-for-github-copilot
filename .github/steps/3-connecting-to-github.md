@@ -45,10 +45,10 @@ Let's make a GitHub App, configure it to work with GitHub Copilot as an Agent, a
    - If this is your first time creating a Copilot extension, you will be prompted to accept the terms.
 1. In the **App Type** dropdown, select `Agent`. Enter the following details:
    - **Preauthorization URL**: Blank
-   - **Agent Definition > URL**: The url displayed on console when you run the extension, plus `/copilot`.
+   - **Agent Definition > URL**: The url displayed on the console when you run the extension, plus `/copilot`.
      - Example: `https://conscious-jumper-abcdefg-3000.app.github.dev/copilot`
    - **Inference Description**: `My first extension for GitHub Copilot`
-     - This will be displayed as a tooltip the Copilot chat interface.
+     - This will be displayed as a tooltip in the Copilot chat interface.
 1. click **Save**.
 1. On the left sidebar, click **Install App**.
 1. Click **Install** and **Install & Authorize**.
