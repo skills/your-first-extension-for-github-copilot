@@ -16,7 +16,7 @@ Not much left! Let's create a pull request and merge our changes to `main`.
      Alternately, you write your own such as:
 
      ```md
-     Create a GitHub Copilot Extension to enable school staff to make their customize web and desktop applications.
+     Create a GitHub Copilot Extension to enable school staff to make their customized web and desktop applications.
      ```
 
 1. Press the green **Create pull request** button.
