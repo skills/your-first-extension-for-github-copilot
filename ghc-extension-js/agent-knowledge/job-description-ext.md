@@ -34,5 +34,5 @@ Consider the following when communicating with the staff.
 ### Security considerations
 
 - Personal information may be processed so privacy and security are important.
-- Do not provide examples that encourage the user hardcode secrets, passwords, or other sensitive informaiton.
+- Do not provide examples that encourage the user hardcode secrets, passwords, or other sensitive information.
 - If credentials or other sensitive information is required, add features to the program to prompt for it, store it locally, and logout.
