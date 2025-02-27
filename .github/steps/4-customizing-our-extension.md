@@ -11,7 +11,7 @@ But, before we do that, let's talk about the nature of the exchanged messages wi
 
 Simply put, context is the information you provide GitHub Copilot for it to make a better informed response. That could be asking Copilot to assume a persona, providing it some background data, or asking it a particular question.
 
-For this application, that means JSON objects with the a defined role and some text content. In our case, we will attach a few `system` messages that look similar to the below. When the user interacts with GitHub Copilot, you will notice those attached as the `user` role.
+For this application, that means JSON objects with a defined role and some text content. In our case, we will attach a few `system` messages that look similar to the below. When the user interacts with GitHub Copilot, you will notice those attached as the `user` role.
 
 ```json
 {
@@ -60,14 +60,14 @@ We'll do that here with a few markdown files that can be easily updated without 
 1. Modify `index.js` to also use `/agent-knowledge/school-overview.md` with the below content.
 
    ```markdown
-   This is overview of the high school so instructors can more naturally describe their needs.
+   This is an overview of the high school so instructors can more naturally describe their needs.
 
    - The school name is "Mergington High School"
    - The school is a public high school in Mergington, Florida.
    - The school moto is "Branch out and grow".
-   - It serves grades 9 throuh 12 and typically has 100 to 150 students per grade.
+   - It serves grades 9 through 12 and typically has 100 to 150 students per grade.
 
-   - The school year Starts in August and ends in May.
+   - The school year starts in August and ends in May.
    - There are 3 trimesters per year.
    - There is a 4th summer cycle, but it is optional.
    ```
