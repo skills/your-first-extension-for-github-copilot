@@ -1,6 +1,6 @@
 ## Step 3: Connecting to GitHub
 
-A critical component for using our extension is creating a [GitHub App](https://docs.github.com/en/apps/overview), which handles presenting our extension to the user and providing authorization to resources. In fact, GitHub Apps can be used for many things such as managing issues, commenting on pull requests, and event talking to other services like Slack.
+A critical component for using our extension is creating a [GitHub App](https://docs.github.com/en/apps/overview), which handles presenting our extension to the user and providing authorization to resources. In fact, GitHub Apps can be used for many things such as managing issues, commenting on pull requests, and even talking to other services like Slack.
 
 For our extension, it will be similar to talking to another service, and displaying it in a general purpose chat on github.com and in Copilot Chat for Visual Studio Code.
 
