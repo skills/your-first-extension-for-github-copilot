@@ -21,4 +21,4 @@ Not much left! Let's create a pull request and merge our changes to `main`.
 
 1. Press the green **Create pull request** button.
 1. Scroll down to review the commit history and ensure your changes are present.
-1. At the bottom, press the green **Merge pull request** button.
+1. At the bottom, press the green **Merge pull request** button and then the green **Confirm merge** button.
