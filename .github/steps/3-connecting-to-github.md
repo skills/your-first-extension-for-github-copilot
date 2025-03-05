@@ -20,7 +20,7 @@ Let's make a GitHub App, configure it to work with GitHub Copilot as an Agent, a
    1. In the **Register new GitHub App** section, enter:
       - **GitHub App name**: `my-ghc-extension-{{login}}`
         - The app name must be unique across all GitHub.
-        - Note: The handle in Copilot chat will be lowercase, like `@my-ghc-extension-{{login_lowercase}}`.
+        - Note: The handle in Copilot Chat will be lowercase, like `@my-ghc-extension-{{login_lowercase}}`.
       - **Description**: `My first extension for GitHub Copilot`
       - **Homepage URL**: Any url that provides an overview and usage instructions for your extension.
         - We will use our web service's information page. This is the url displayed on console when you run the extension, plus `/info`.

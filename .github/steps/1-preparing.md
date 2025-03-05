@@ -21,8 +21,8 @@ In fact, you can even publish your extension on the [GitHub Marketplace](https:/
 
 ### How do I make an extension?
 
-Creating an extension is fairly easy. In includes 3 parts, which we will learn in this lesson.
-Naturally, the web service must be hosted, but for that is another topic. For this exercise, we will use a [Codespace](https://github.com/features/codespaces).
+Creating an extension is fairly easy. It includes 3 parts, which we will learn in this lesson.
+Naturally, the web service must be hosted, but that is covered in another lesson. For this exercise, we will use a [Codespace](https://github.com/features/codespaces).
 
 1. **GitHub App** - Enables message handling and communicating with GitHub Copilot.
 1. **Extension Service** - A standard web service for receiving the messages, performing the custom actions, and responding back to GitHub Copilot.

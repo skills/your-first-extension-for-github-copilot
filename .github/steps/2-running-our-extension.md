@@ -1,6 +1,6 @@
 ## Step 2: Running our Extension
 
-Let's learn a bit more about the web application that will become our GitHub Copilot Extension, more specifically, the need endpoints for communicating with our [GitHub App](https://docs.github.com/en/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps) (next step).
+Let's learn a bit more about the web application that will become our GitHub Copilot Extension, more specifically, the needed endpoints for communicating with our [GitHub App](https://docs.github.com/en/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps) (next step).
 
 There are 2 required and 1 recommended web service endpoints:
 

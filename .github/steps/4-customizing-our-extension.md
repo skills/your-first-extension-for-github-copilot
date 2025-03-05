@@ -125,4 +125,4 @@ We'll do that here with a few markdown files that can be easily updated without 
      - `index.js`
      - `agent-knowledge/job-description.md`
      - `agent-knowledge/school-overview.md`
-     - `agent-knowledge/staff-roles.md`.
+     - `agent-knowledge/staff-roles.md`
