@@ -126,10 +126,11 @@ jobs:
         run: |
           issue_url=$(gh issue create \
             --title "Exercise: $EXERCISE_NAME" \
-            --body "${{ steps.build-issue-description.outputs.updated-text }}")
+            --body "$ISSUE_BODY")
           echo "ISSUE_URL=$issue_url" >> "$GITHUB_OUTPUT"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_BODY: ${{ steps.build-issue-description.outputs.updated-text }}
 
   post_next_step_content:
     name: Post next step content
@@ -165,10 +166,10 @@ jobs:
       - name: Create comment - add step content
         run: |
           gh issue comment "$ISSUE_URL" \
-            --body "$ISSUE_BODY"
+            --body "$COMMENT_BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_BODY: ${{ steps.build-comment.outputs.updated-text }}
+          COMMENT_BODY: ${{ steps.build-comment.outputs.updated-text }}
 
       - name: Create comment - watching for progress
         run: |
