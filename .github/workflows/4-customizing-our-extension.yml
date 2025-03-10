@@ -156,9 +156,10 @@ jobs:
       - name: Update comment - step finished
         run: |
           gh issue comment "$ISSUE_URL" \
-            --body "${{ steps.build-message-step-finish.outputs.updated-text }}"
+            --body "$COMMENT_BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMENT_BODY: ${{ steps.build-message-step-finish.outputs.updated-text }}
 
   post_step_4_content:
     name: Post step 4 content

@@ -124,7 +124,7 @@ jobs:
         run: |
           # Add "Congratulations" to the start of the README
           orig_readme=$(cat README.md)
-          new_readme="${{ steps.build-message-congratulations.outputs.updated-text }} $orig_readme"
+          new_readme="$MESSAGE $orig_readme"
 
           # Update file and push
           echo "$new_readme" > README.md
@@ -133,6 +133,7 @@ jobs:
           git push
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MESSAGE: ${{ steps.build-message-congratulations.outputs.updated-text }}
 
       - name: Build message - exercise finished
         id: build-finish-message
@@ -146,9 +147,10 @@ jobs:
       - name: Create comment - exercise finished
         run: |
           gh issue comment "$ISSUE_URL" \
-            --body "${{ steps.build-finish-message.outputs.updated-text }}"
+            --body "$COMMENT_BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMENT_BODY: ${{ steps.build-finish-message.outputs.updated-text }}
 
       - name: Close issue
         run: gh issue close "$ISSUE_URL"

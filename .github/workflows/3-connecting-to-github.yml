@@ -24,10 +24,12 @@ jobs:
         run: |
           required_keywords=(${REQUIRED_ISSUE_COMMENT_KEYWORDS//,/ })
           for keyword in "${required_keywords[@]}"; do
-          if [[ ! "${{ github.event.comment.body }}" =~ $keyword ]]; then
+          if [[ ! "$COMMENT_BODY" =~ $keyword ]]; then
             exit 1
           fi
           done
+        env:
+          COMMENT_BODY: ${{ github.event.comment.body }}
 
   find_exercise:
     name: Find exercise by issue title
@@ -109,10 +111,11 @@ jobs:
       - name: Update comment - step finished
         run: |
           gh issue comment "$ISSUE_URL" \
-            --body "${{ steps.build-message-step-finish.outputs.updated-text }}" \
+            --body "$COMMENT_BODY" \
             --edit-last
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMENT_BODY: ${{ steps.build-message-step-finish.outputs.updated-text }}
 
   post_step_4_content:
     name: Post step 4 content
@@ -148,10 +151,10 @@ jobs:
       - name: Create comment - add step content
         run: |
           gh issue comment "$ISSUE_URL" \
-            --body "$ISSUE_BODY"
+            --body "$COMMENT_BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_BODY: ${{ steps.build-comment.outputs.updated-text }}
+          COMMENT_BODY: ${{ steps.build-comment.outputs.updated-text }}
 
       - name: Create comment - watching for progress
         run: |
