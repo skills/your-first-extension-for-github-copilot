@@ -103,21 +103,31 @@ We'll do that here with a few markdown files that can be easily updated without 
 1. Like previously, navigate to [github.com](https://github.com) and start a generic chat with Copilot.
 1. Try interacting with Copilot using some of the below prompts.
 
-   ```txt
-   @my-ghc-extension-{{login_lowercase}} I heard you can help me with my students. In what ways?
-   ```
+   > <img width="13px" src="https://github.com/user-attachments/assets/98fd5d2e-ea29-4a4a-9212-c7050e177a69" /> **Prompt**
+   >
+   > ```prompt
+   > @my-ghc-extension-{{login_lowercase}} I heard you can help me with my students. In what ways?
+   > ```
 
-   ```txt
-   @my-ghc-extension-{{login_lowercase}} Tell me a bit about our school?
-   ```
+   > <img width="13px" src="https://github.com/user-attachments/assets/98fd5d2e-ea29-4a4a-9212-c7050e177a69" /> **Prompt**
+   >
+   > ```prompt
+   > @my-ghc-extension-{{login_lowercase}} Tell me a bit about our school?
+   > ```
 
-   ```txt
-   @my-ghc-extension-{{login_lowercase}} I'd like to create a system for tracking student progress across years and teachers. Let's make a website for it.
-   ```
+   > <img width="13px" src="https://github.com/user-attachments/assets/98fd5d2e-ea29-4a4a-9212-c7050e177a69" /> **Prompt**
+   >
+   > ```prompt
+   > @my-ghc-extension-{{login_lowercase}} I'd like to create a system for tracking student progress
+   > across years and teachers. Let's make a website for it.
+   > ```
 
-   ```txt
-   @my-ghc-extension-{{login_lowercase}} How can I visualize data exported from our student management system? For example a graph of each students' grades over the year.
-   ```
+   > <img width="13px" src="https://github.com/user-attachments/assets/98fd5d2e-ea29-4a4a-9212-c7050e177a69" /> **Prompt**
+   >
+   > ```prompt
+   > @my-ghc-extension-{{login_lowercase}} How can I visualize data exported from our student management system?
+   > For example a graph of each students' grades over the year.
+   > ```
 
 1. When you are done experimenting with prompts and changing the files, please commit and push the changes.
    - Make sure you are on the `my-ghc-extension` branch.
