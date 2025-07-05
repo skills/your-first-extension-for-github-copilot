@@ -38,13 +38,14 @@ jobs:
           path: exercise-toolkit
           ref: v0.7.0
 
-      - name: Build message - step finished
-        id: build-message-step-finish
-        uses: skills/action-text-variables@v1
+      - name: Create comment - step finished
+        uses: GrantBirki/comment@v2.1.1
         with:
-          template-file: skills-response-templates/step-feedback/step-finished-prepare-next-step.md
-          template-vars: |
-            next_step_number=2
+          issue-number: ${{ env.ISSUE_NUMBER }}
+          repository: ${{ env.ISSUE_REPOSITORY }}
+          file: exercise-toolkit/markdown-templates/step-feedback/step-finished-prepare-next-step.md
+          vars: |
+            next_step_number: 2
 
       - name: Create comment - add step content
         uses: GrantBirki/comment@v2.1.1
