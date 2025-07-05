@@ -1,4 +1,4 @@
-name: Step 2
+name: Step 3 # Connecting to GitHub
 
 on:
   issue_comment:
@@ -10,9 +10,9 @@ permissions:
   issues: write
 
 env:
-  # Keywords required in the issue comment to let this workflow run
-  REQUIRED_ISSUE_COMMENT_KEYWORDS: "@professortocat,https,app.github.dev"
-  STEP_3_FILE: ".github/steps/3-connecting-to-github.md"
+  # Keywords required in the issue comment to allow this workflow to run
+  REQUIRED_ISSUE_COMMENT_KEYWORDS: "@professortocat,https://github.com/apps"
+  STEP_4_FILE: ".github/steps/4-step.md"
 
 jobs:
   required_issue_comment_keywords:
@@ -25,8 +25,7 @@ jobs:
           required_keywords=(${REQUIRED_ISSUE_COMMENT_KEYWORDS//,/ })
           for keyword in "${required_keywords[@]}"; do
           if [[ ! "$COMMENT_BODY" =~ $keyword ]]; then
-            echo "Unrecognized request. Ending workflow."
-            exit 0
+            exit 1
           fi
           done
         env:
@@ -74,23 +73,24 @@ jobs:
 
       # START: Check practical exercise
 
-      - name: Check codespace is running
-        id: check-codespace-running
+      - name: Check gitub app url is valid
+        id: check-app-url
         continue-on-error: true
         run: |
-          # Get the codespace url from the comment body
-          url_regex="https://[a-z0-9-]*.app.github.dev"
-          codespace_url=$(echo $ISSUE_COMMENT_BODY | grep -oP "$url_regex" | head -n 1)
+          # Get the GitHub App url from the comment body
+          url_regex="https://github.com/apps/[^[:space:]]*"
+          app_url=$(echo $ISSUE_COMMENT_BODY | grep -oP "$url_regex" | head -n 1)
 
-          # Ping the web service for a status code
-          echo "Checking codespace is running at: $codespace_url"
-          resp_code=$(curl -s -o /dev/null -w "%{http_code}" $codespace_url)
+          # Ping the url and get the content
+          echo "Checking GitHub App exists at: $app_url"
+          resp_code=$(curl -s -o /dev/null -w "%{http_code}" $app_url)
+          echo "Response Code: $resp_code"
 
-          # If the codespace is not running, comment on the issue and exit
+          # If the GitHub App url is not valid, it wasn't created. Comment on the issue and exit
           if [ "$resp_code" -eq 200 ]; then
-            echo "Codespace confirmed running"
+            echo "GitHub App confirmed existing"
           else
-            echo "Codespace is not running. Response Code: $resp_code"
+            echo "GitHub App not available. Response Code: $resp_code"
             exit 1
           fi
         env:
@@ -108,10 +108,10 @@ jobs:
           file: exercise-toolkit/markdown-templates/step-feedback/step-results-table.md
           edit-mode: replace
           vars: |
-            step_number: 2
+            step_number: 3
             results_table:
-              - description: "Codespaces is running"
-                passed: ${{ steps.check-codespace-running.outcome == 'success' }}
+              - description: "GitHub App URL is valid"
+                passed: ${{ steps.check-app-url.outcome == 'success' }}
 
       - name: Fail job if not all checks passed
         if: contains(steps.*.outcome, 'failure')
@@ -142,14 +142,20 @@ jobs:
           login_lowercase=$(echo "${{ github.actor }}" | tr '[:upper:]' '[:lower:]')
           echo "login_lowercase=$login_lowercase" >> $GITHUB_ENV
 
+      - name: Build comment - add step content
+        id: build-comment
+        uses: skills/action-text-variables@v1
+        with:
+          template-file: ${{ env.STEP_4_FILE }}
+          template-vars: |
+            login_lowercase=${{ env.login_lowercase }}
+
       - name: Create comment - add step content
         uses: GrantBirki/comment@v2.1.1
         with:
           repository: ${{ env.ISSUE_REPOSITORY }}
           issue-number: ${{ env.ISSUE_NUMBER }}
-          file: ${{ env.STEP_3_FILE }}
-          vars: |
-            login_lowercase: ${{ env.login_lowercase }}
+          file: ${{ env.STEP_4_FILE }}
 
       - name: Create comment - watching for progress
         uses: GrantBirki/comment@v2.1.1
@@ -161,6 +167,6 @@ jobs:
       - name: Disable current workflow and enable next one
         run: |
           gh workflow disable "${{github.workflow}}"
-          gh workflow enable "Step 3"
+          gh workflow enable "Step 4"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

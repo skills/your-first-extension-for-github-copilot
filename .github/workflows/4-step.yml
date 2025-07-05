@@ -13,7 +13,7 @@ permissions:
   issues: write
 
 env:
-  STEP_5_FILE: ".github/steps/5-merge-our-changes.md"
+  STEP_5_FILE: ".github/steps/5-step.md"
 
 jobs:
   find_exercise:
