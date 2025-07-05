@@ -1,4 +1,4 @@
-name: Step 5 # Merge your pull request
+name: Step 5
 
 on:
   pull_request:
