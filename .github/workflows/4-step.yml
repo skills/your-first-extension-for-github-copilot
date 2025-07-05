@@ -39,6 +39,23 @@ jobs:
           path: exercise-toolkit
           ref: v0.7.0
 
+      - name: Find last comment
+        id: find-last-comment
+        uses: peter-evans/find-comment@v3
+        with:
+          repository: ${{ env.ISSUE_REPOSITORY }}
+          issue-number: ${{ env.ISSUE_NUMBER }}
+          direction: last
+
+      - name: Update comment - checking work
+        uses: GrantBirki/comment@v2.1.1
+        with:
+          repository: ${{ env.ISSUE_REPOSITORY }}
+          issue-number: ${{ env.ISSUE_NUMBER }}
+          comment-id: ${{ steps.find-last-comment.outputs.comment-id }}
+          file: exercise-toolkit/markdown-templates/step-feedback/checking-work.md
+          edit-mode: replace
+
       # START: Check practical exercise
 
       - name: Check agent job description does not use the template
@@ -82,7 +99,7 @@ jobs:
           file: exercise-toolkit/markdown-templates/step-feedback/step-results-table.md
           edit-mode: replace
           vars: |
-            step_number: 3
+            step_number: 4
             results_table:
               - description: "Agent description updated"
                 passed: ${{ steps.check-agent-job-description.outcome == 'success' }}
