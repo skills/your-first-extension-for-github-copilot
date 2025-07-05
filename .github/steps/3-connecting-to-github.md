@@ -20,7 +20,7 @@ Let's make a GitHub App, configure it to work with GitHub Copilot as an Agent, a
    1. In the **Register new GitHub App** section, enter:
       - **GitHub App name**: `my-ghc-extension-{{login}}`
         - The app name must be unique across all GitHub.
-        - Note: The handle in Copilot Chat will be lowercase, like `@my-ghc-extension-{{login_lowercase}}`.
+        - Note: The handle in Copilot Chat will be lowercase, like `@my-ghc-extension-{{login | lower}}`.
       - **Description**: `My first extension for GitHub Copilot`
       - **Homepage URL**: Any url that provides an overview and usage instructions for your extension.
         - We will use our web service's information page. This is the url displayed on console when you run the extension, plus `/info`.
@@ -61,7 +61,7 @@ Let's check if our extension service is available to use on github.com and in ou
 1. Open a web browser and navigate to [github.com](https://github.com).
 1. At the top of the page, click the **Copilot Icon**.
 1. Start a general purpose chat.
-1. Type `@my-ghc-extension-{{login_lowercase}} How can you help me?` and press enter. You should get a response.
+1. Type `@my-ghc-extension-{{login | lower}} How can you help me?` and press enter. You should get a response.
    > **Tip:** Try opening another VS Code window. You can use the extension there with Copilot Chat as well!
 1. After you are done configuring your **GitHub App** and testing the connection, leave the following comment on the issue to let Mona know you are ready for the next step.
 

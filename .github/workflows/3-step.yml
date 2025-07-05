@@ -136,19 +136,13 @@ jobs:
           path: exercise-toolkit
           ref: v0.7.0
 
-      - name: Create lowercase version of login
-        if: true
-        run: |
-          login_lowercase=$(echo "${{ github.actor }}" | tr '[:upper:]' '[:lower:]')
-          echo "login_lowercase=$login_lowercase" >> $GITHUB_ENV
-
       - name: Build comment - add step content
         id: build-comment
         uses: skills/action-text-variables@v1
         with:
           template-file: ${{ env.STEP_4_FILE }}
           template-vars: |
-            login_lowercase=${{ env.login_lowercase }}
+            login=${{ github.actor }}
 
       - name: Create comment - add step content
         uses: GrantBirki/comment@v2.1.1

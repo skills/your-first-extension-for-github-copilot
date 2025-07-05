@@ -106,26 +106,26 @@ We'll do that here with a few markdown files that can be easily updated without 
    > <img width="13px" src="https://github.com/user-attachments/assets/98fd5d2e-ea29-4a4a-9212-c7050e177a69" /> **Prompt**
    >
    > ```prompt
-   > @my-ghc-extension-{{login_lowercase}} I heard you can help me with my students. In what ways?
+   > @my-ghc-extension-{{login | lower}} I heard you can help me with my students. In what ways?
    > ```
 
    > <img width="13px" src="https://github.com/user-attachments/assets/98fd5d2e-ea29-4a4a-9212-c7050e177a69" /> **Prompt**
    >
    > ```prompt
-   > @my-ghc-extension-{{login_lowercase}} Tell me a bit about our school?
+   > @my-ghc-extension-{{login | lower}} Tell me a bit about our school?
    > ```
 
    > <img width="13px" src="https://github.com/user-attachments/assets/98fd5d2e-ea29-4a4a-9212-c7050e177a69" /> **Prompt**
    >
    > ```prompt
-   > @my-ghc-extension-{{login_lowercase}} I'd like to create a system for tracking student progress
+   > @my-ghc-extension-{{login | lower}} I'd like to create a system for tracking student progress
    > across years and teachers. Let's make a website for it.
    > ```
 
    > <img width="13px" src="https://github.com/user-attachments/assets/98fd5d2e-ea29-4a4a-9212-c7050e177a69" /> **Prompt**
    >
    > ```prompt
-   > @my-ghc-extension-{{login_lowercase}} How can I visualize data exported from our student management system?
+   > @my-ghc-extension-{{login | lower}} How can I visualize data exported from our student management system?
    > For example a graph of each students' grades over the year.
    > ```
 
