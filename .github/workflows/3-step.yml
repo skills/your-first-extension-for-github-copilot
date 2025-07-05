@@ -135,20 +135,14 @@ jobs:
           path: exercise-toolkit
           ref: v0.7.0
 
-      - name: Build comment - add step content
-        id: build-comment
-        uses: skills/action-text-variables@v1
-        with:
-          template-file: ${{ env.STEP_4_FILE }}
-          template-vars: |
-            login=${{ github.actor }}
-
       - name: Create comment - add step content
         uses: GrantBirki/comment@v2.1.1
         with:
           repository: ${{ env.ISSUE_REPOSITORY }}
           issue-number: ${{ env.ISSUE_NUMBER }}
           file: ${{ env.STEP_4_FILE }}
+          vars: |
+            login: ${{ github.actor }}
 
       - name: Create comment - watching for progress
         uses: GrantBirki/comment@v2.1.1
