@@ -13,22 +13,26 @@ env:
   STEP_4_FILE: ".github/steps/4-step.md"
 
 jobs:
-  required_issue_comment_keywords:
-    name: Check issue comment text for required keywords
+  check_keywords:
+    name: Check issue comment text for required keyword
     runs-on: ubuntu-latest
-
     steps:
-      - name: Stop early if missing the expected keywords
-        run: |
-          required_keywords=(${REQUIRED_ISSUE_COMMENT_KEYWORDS//,/ })
-          for keyword in "${required_keywords[@]}"; do
-          if [[ ! "$COMMENT_BODY" =~ $keyword ]]; then
-            exit 1
-          fi
-          done
-        env:
-          COMMENT_BODY: ${{ github.event.comment.body }}
-          REQUIRED_ISSUE_COMMENT_KEYWORDS: "@professortocat,https://github.com/apps"
+      - name: Check for professortocat
+        id: check_professortocat
+        uses: skills/action-keyphrase-checker@v1
+        with:
+          text: ${{ github.event.comment.body }}
+          keyphrase: "professortocat"
+          case-sensitive: false
+          minimum-occurrences: 1
+      - name: Check for GitHub App url
+        id: check_alert
+        uses: skills/action-keyphrase-checker@v1
+        with:
+          text: ${{ github.event.comment.body }}
+          keyphrase: "https://github.com/apps"
+          case-sensitive: false
+          minimum-occurrences: 1
 
   find_exercise:
     name: Find Exercise Issue
@@ -37,7 +41,7 @@ jobs:
   check_step_work:
     name: Check step work
     runs-on: ubuntu-latest
-    needs: [required_issue_comment_keywords, find_exercise]
+    needs: [check_keywords, find_exercise]
     env:
       ISSUE_REPOSITORY: ${{ github.repository }}
       ISSUE_NUMBER: ${{ needs.find_exercise.outputs.issue-number }}
