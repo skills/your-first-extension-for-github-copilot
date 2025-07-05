@@ -10,8 +10,6 @@ permissions:
   issues: write
 
 env:
-  # Keywords required in the issue comment to allow this workflow to run
-  REQUIRED_ISSUE_COMMENT_KEYWORDS: "@professortocat,https://github.com/apps"
   STEP_4_FILE: ".github/steps/4-step.md"
 
 jobs:
@@ -30,6 +28,7 @@ jobs:
           done
         env:
           COMMENT_BODY: ${{ github.event.comment.body }}
+          REQUIRED_ISSUE_COMMENT_KEYWORDS: "@professortocat,https://github.com/apps"
 
   find_exercise:
     name: Find Exercise Issue
