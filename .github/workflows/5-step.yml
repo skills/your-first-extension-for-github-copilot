@@ -39,7 +39,7 @@ jobs:
           path: exercise-toolkit
           ref: v0.7.0
 
-      - name: Create comment - step finished
+      - name: Create comment - step finished - final review next
         uses: GrantBirki/comment@v2.1.1
         with:
           repository: ${{ env.ISSUE_REPOSITORY }}
