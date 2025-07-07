@@ -61,32 +61,26 @@ jobs:
       - name: Check agent job description does not use the template
         id: check-agent-job-description
         continue-on-error: true
-        run: |            
-          job_description=$(<"./ghc-extension-js/agent-knowledge/job-description.md")
-          if [[ $job_description =~ "customize the job description" ]]; then
-            echo "Job description still uses the template. Please customize it."
-            exit 1
-          fi
+        uses: skills/action-keyphrase-checker@v1
+        with:
+          text-file: README.md
+          keyphrase: customize the job description
 
       - name: Check school overview does not use the template
-        continue-on-error: true
         id: check-school-overview
-        run: |
-          school_overview=$(<"./ghc-extension-js/agent-knowledge/school-overview.md")
-          if [[ $school_overview =~ "customize the school overview" ]]; then
-            echo "School overview still uses the template. Please customize it."
-            exit 1
-          fi
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v1
+        with:
+          text-file: README.md
+          keyphrase: customize the school overview
 
       - name: Check staff roles does not use the template
-        continue-on-error: true
         id: check-staff-roles
-        run: |
-          staff_roles=$(<"./ghc-extension-js/agent-knowledge/staff-roles.md")
-          if [[ $staff_roles =~ "some roles a high school might have" ]]; then
-            echo "Staff roles still use the template. Please customize it."
-            exit 1
-          fi
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v1
+        with:
+          text-file: README.md
+          keyphrase: some roles a high school might have
 
       # END: Check practical exercise
 
