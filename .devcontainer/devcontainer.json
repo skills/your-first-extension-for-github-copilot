@@ -1,7 +1,11 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
 {
-  // A universal image that includes several runtimes and tools
-  "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "postCreateCommand": "cd ghc-extension-js && npm install",
+  "postStartCommand": "gh cs ports visibility 3000:public -c $CODESPACE_NAME",
+
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
 
   // The service is hosted on port 3000
   "forwardPorts": [3000],

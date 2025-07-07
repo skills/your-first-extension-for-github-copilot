@@ -101,31 +101,31 @@ We'll do that here with a few markdown files that can be easily updated without 
 1. Great work! Now we have a job description and some context for our extension to use. Let's test it out!
 1. If the extension service is not already running, use the debugger to start it.
 1. Like previously, navigate to [github.com](https://github.com) and start a generic chat with Copilot.
-1. Try interacting with Copilot using some of the below prompts.
+1. Try interacting with Copilot using some of the below prompts. Make sure you are in **Ask** mode.
 
    > <img width="13px" src="https://github.com/user-attachments/assets/98fd5d2e-ea29-4a4a-9212-c7050e177a69" /> **Prompt**
    >
    > ```prompt
-   > @my-ghc-extension-{{login_lowercase}} I heard you can help me with my students. In what ways?
+   > @my-ghc-extension-{{login | lower}} I heard you can help me with my students. In what ways?
    > ```
 
    > <img width="13px" src="https://github.com/user-attachments/assets/98fd5d2e-ea29-4a4a-9212-c7050e177a69" /> **Prompt**
    >
    > ```prompt
-   > @my-ghc-extension-{{login_lowercase}} Tell me a bit about our school?
+   > @my-ghc-extension-{{login | lower}} Tell me a bit about our school?
    > ```
 
    > <img width="13px" src="https://github.com/user-attachments/assets/98fd5d2e-ea29-4a4a-9212-c7050e177a69" /> **Prompt**
    >
    > ```prompt
-   > @my-ghc-extension-{{login_lowercase}} I'd like to create a system for tracking student progress
+   > @my-ghc-extension-{{login | lower}} I'd like to create a system for tracking student progress
    > across years and teachers. Let's make a website for it.
    > ```
 
    > <img width="13px" src="https://github.com/user-attachments/assets/98fd5d2e-ea29-4a4a-9212-c7050e177a69" /> **Prompt**
    >
    > ```prompt
-   > @my-ghc-extension-{{login_lowercase}} How can I visualize data exported from our student management system?
+   > @my-ghc-extension-{{login | lower}} How can I visualize data exported from our student management system?
    > For example a graph of each students' grades over the year.
    > ```
 

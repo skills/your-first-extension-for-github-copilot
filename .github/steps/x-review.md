@@ -15,7 +15,7 @@ Here's a recap of your accomplishments:
 
 - Use GitHub Actions to automate [deploying your service to Azure](https://github.com/skills/deploy-to-azure).
 - Publish your extension to the [GitHub Marketplace](https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions#about-visibility-of-github-copilot-extensions).
-- Check out the other [GitHub Skills exercises](https://skills.github.com).
+- Check out the other [GitHub Skills exercises](https://learn.github.com/skills).
 
 Check out these resources to learn more about GitHub Copilot Extensions:
 
