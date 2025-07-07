@@ -85,13 +85,12 @@ jobs:
 
       # END: Check practical exercise
 
-      - name: Update comment - step results
+      - name: Create comment - step results
         uses: GrantBirki/comment@v2.1.1
         with:
           repository: ${{ env.ISSUE_REPOSITORY }}
           issue-number: ${{ env.ISSUE_NUMBER }}
           file: exercise-toolkit/markdown-templates/step-feedback/step-results-table.md
-          edit-mode: replace
           vars: |
             step_number: 2
             results_table:
