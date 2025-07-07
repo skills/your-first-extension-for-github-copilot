@@ -111,7 +111,7 @@ jobs:
           vars: |
             step_number: 2
             results_table:
-              - description: "Codespaces is running"
+              - description: "Codespace is running"
                 passed: ${{ steps.check-codespace-running.outcome == 'success' }}
 
       - name: Fail job if not all checks passed
