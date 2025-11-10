@@ -1,3 +1,7 @@
+> [!CAUTION]
+> GitHub Copilot Extensions was deprecated on Nov 10th, 2025 in favor of the Model Context Protocol (MCP).  
+> You can read more about this change in our [changelog post](https://github.blog/changelog/2025-09-24-deprecate-github-copilot-extensions-github-apps/).
+
 # Your first extension for GitHub Copilot
 
 _Customize GitHub Copilot to your personal or company needs in less than an hour._
